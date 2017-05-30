@@ -6,8 +6,7 @@ public class enemy extends JPanel
 	private int size, x,y, dx, dy, bx, by, dbx, dby, numBombs;
 	private Random gen;
 	private Image im;
-
-
+	
 	public enemy(int x1, int y1, String f) 
     {
     	size = 25;
@@ -24,9 +23,9 @@ public class enemy extends JPanel
     	im=ii.getImage();
     }
     
-    public void moveLeft()
+    public void moveLeft()//each enemy can move either left or right, and they move on a 5 second timer.
     {	
-    	dx = -1;
+    	dx = -1;//count of 6 seconds.
     	if (x<=5)
     		x = 850;
     }

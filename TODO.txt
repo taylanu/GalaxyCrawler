@@ -1,0 +1,9 @@
+Move monsters/enemies down every 5 seconds.
+Remove bullet acceleration code.
+
+
+
+README:
+
+variable mdx is for missle x coordinate
+variable mdy is for missle y coordinate

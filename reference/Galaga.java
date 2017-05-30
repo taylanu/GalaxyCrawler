@@ -53,14 +53,14 @@ private static class GraphicPanel extends JPanel implements KeyListener, ActionL
 		
 		public GraphicPanel()
 		{
-			t = new Timer(10, this);
+			//t = new Timer(10, this);
 			x=395;
 			y=342;
 			dx=0;
 			my = -1;	
 			score = 0;// initialize the score to 0
 			enemies=new enemy[15];
-	enemies[0]=new enemy(200, 50, "Redgalaga.png");
+	enemies[0]=new enemy(200, 50, "Redgalaga.png");//each enemy is initialized with coordinates (x,y) and image graphic.
 	enemies[1] = new enemy(300,50,"Bluegalaxian.png");
 	enemies[2] = new enemy(400, 50, "Galagancommander.png");
 	enemies[3] = new enemy(500, 50, "purplegalaxian.png");
@@ -116,6 +116,7 @@ private static class GraphicPanel extends JPanel implements KeyListener, ActionL
 			}
 			
 		}
+
 
 		
 		public void keyTyped(KeyEvent e) {}     // implement the rest 
@@ -238,11 +239,7 @@ private static class GraphicPanel extends JPanel implements KeyListener, ActionL
 			ex15 = enemies[14].getX();
 			ey15 = enemies[14].getY();
 			}
-			
-			
-			
-			
-			
+
 if ((enemies[0]!=null && Math.abs((ex1+20)-mx)<20) && (Math.abs((ey1+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
 				collision1 = true;
 			if (collision1==true)
@@ -379,10 +376,6 @@ if ((enemies[14]!=null && Math.abs((ex15+20)-mx)<20) && (Math.abs((ey15+20)-my)<
 				score += 250;
 				collision15 = false;
 			}
-			
-			
-	
-			
 			repaint();
 		}
 
