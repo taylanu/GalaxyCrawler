@@ -25,6 +25,7 @@ import java.awt.*;
 
 //Board is planned to be 8*8 leaving player to spawn in second row from bottom, and monsters to begin to spawn in at top row.
 //Need to take existing frame and add panel with gameplay within it.
+//Enter a title screen.
 public class gCrawler{
 	boolean won = false;
 	
@@ -49,6 +50,10 @@ public class gCrawler{
     public double getX();
     public double getY();
     }
+    private static class GamePanel extends JPanel implements KeyListener, ActionListener{
+		
+	}
+    
 	
 	
 }
