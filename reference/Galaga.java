@@ -53,28 +53,28 @@ private static class GraphicPanel extends JPanel implements KeyListener, ActionL
 		
 		public GraphicPanel()
 		{
-			//t = new Timer(10, this);
+			t = new Timer(10, this);
 			x=395;
 			y=342;
 			dx=0;
 			my = -1;	
 			score = 0;// initialize the score to 0
 			enemies=new enemy[15];
-	enemies[0]=new enemy(200, 50, "Redgalaga.png");//each enemy is initialized with coordinates (x,y) and image graphic.
-	enemies[1] = new enemy(300,50,"Bluegalaxian.png");
-	enemies[2] = new enemy(400, 50, "Galagancommander.png");
-	enemies[3] = new enemy(500, 50, "purplegalaxian.png");
-	enemies[4] = new enemy (600, 50, "yellowgalaga.png");
-	enemies[5]=new enemy(200, 85, "bluegalaxian.png");
-	enemies[6]= new enemy(300,85,"galagancommander.png");
-	enemies[7] = new enemy(400, 85, "redgalaga.png");
-	enemies[8] = new enemy(500, 85, "yellowgalaga.png");
-	enemies[9] = new enemy (600, 85, "purplegalaxian.png");
-	enemies[10]=new enemy(200, 120, "Redgalaga.png");
-	enemies[11]= new enemy(300, 120,"Bluegalaxian.png");
-	enemies[12] = new enemy(400, 120, "yellowgalaga.png");
-	enemies[13] = new enemy(500, 120, "purplegalaxian.png");
-	enemies[14] = new enemy (600, 120, "redgalaga.png");
+	enemies[0]=new enemy(200, 50, "BUG L1.png");//each enemy is initialized with coordinates (x,y) and image graphic.
+	enemies[1] = new enemy(300,50,"BUG L1.png");
+	enemies[2] = new enemy(400, 50, "BUG L1.png");
+	enemies[3] = new enemy(500, 50, "BUG L2.png");
+	enemies[4] = new enemy (600, 50, "BUG L2.png");
+	enemies[5]=new enemy(200, 85, "BUG L2.png");
+	enemies[6]= new enemy(300,85,"BUG L3.png");
+	enemies[7] = new enemy(400, 85, "BUG L3.png");
+	enemies[8] = new enemy(500, 85, "BUG L2.png");
+	enemies[9] = new enemy (600, 85, "BUG L2.png");
+	enemies[10]=new enemy(200, 120, "BUG L1.png");
+	enemies[11]= new enemy(300, 120,"BUG L1.png");
+	enemies[12] = new enemy(400, 120, "BUG L2.png");
+	enemies[13] = new enemy(500, 120, "BUG L2.png");
+	enemies[14] = new enemy (600, 120, "BUG L3.png");
 			t.start();
 			addKeyListener(this);
 		}
@@ -99,16 +99,18 @@ private static class GraphicPanel extends JPanel implements KeyListener, ActionL
 			if(e.getKeyCode()==KeyEvent.VK_A) // if player hits A, increase left velocity by one.
 			{
 				dx--;
-				if(dx<-3) dx=-3;
+				if(dx<-3) 
+            dx=-3;
 			}
 			else if(e.getKeyCode()==KeyEvent.VK_D) // if player hits d, increase right velocity by one.
 			{
 				dx++;
-				if(dx>3) dx=3;
+				if(dx>3) 
+            dx=3;
 			}
 			else if(e.getKeyCode()==KeyEvent.VK_S) // if player hits s, the launcher will stop moving.
 				dx=0;
-			else if (my==-1 && e.getKeyCode()==KeyEvent.VK_SPACE)  // if player presses space bar, launch a missile (if the player still has missiles left)
+			else if (my==-1 && e.getKeyCode()==KeyEvent.VK_SPACE)  // if player presses space bar, launch a missile
 			{
 				mx=x+20;
 				my=y;
@@ -406,7 +408,7 @@ if ((enemies[14]!=null && Math.abs((ex15+20)-mx)<20) && (Math.abs((ey15+20)-my)<
 			if (my!=-1)  // add the code to draw the missile
 				{
 					gr.setColor(Color.green);
-					gr.drawLine(mx, my, mx, my+3);	
+					gr.drawLine(mx, my+10, mx, my+5);	
 				}
 			
 			if ( (by > 0 ))
@@ -423,7 +425,7 @@ if ((enemies[14]!=null && Math.abs((ex15+20)-mx)<20) && (Math.abs((ey15+20)-my)<
 			if (my!=-1)  // add the code to draw the missile
 				{
 					gr.setColor(Color.green);
-					gr.drawLine(mx, my, mx, my+3);	
+					gr.drawLine(mx, my+10, mx, my+5);	
 				}
 			Random gen = new Random();
 			if (count == 50)
@@ -494,7 +496,6 @@ if ((enemies[14]!=null && Math.abs((ex15+20)-mx)<20) && (Math.abs((ey15+20)-my)<
 					
 			}
 			
-			// add the code to output the current score
 		}
 	}
 } 
