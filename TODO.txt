@@ -7,3 +7,8 @@ README:
 
 variable mdx is for missle x coordinate
 variable mdy is for missle y coordinate
+
+
+6/5/17 Update:
+Worked on collisions for Galaga game. Still not functioning properly. May have to divide up methods to check for collisions.
+Will work on missiles in the future.
