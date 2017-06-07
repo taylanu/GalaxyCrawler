@@ -18,7 +18,7 @@ public class Galaga
       panel.setFocusable(true);			// for the KeyListener to work, we have
       frame.getContentPane().add(panel);		//	to do this
       frame.pack();
-      frame.setSize(859, 524);			// set the size of the frame
+      frame.setSize(860, 525);			// set the size of the frame
       frame.setVisible(true);
       Random g = new Random();
    }
@@ -28,6 +28,7 @@ public class Galaga
       private Timer t;
       private int x, y, dx; // the launcher itself.
       private int mx, my, mdx, mdy; // add missile variables here
+      private int mx2, my2,mdy2,mdx2;
       private boolean collision1;
       private boolean collision2;
       private boolean collision3;
@@ -113,12 +114,26 @@ public class Galaga
          }
          else if(e.getKeyCode()==KeyEvent.VK_S) // if player hits s, the launcher will stop moving.
             dx=0;
-         else if (my==-1 && e.getKeyCode()==KeyEvent.VK_SPACE)  // if player presses space bar, launch a missile
+         else if (e.getKeyCode()==KeyEvent.VK_K)  // if player presses space bar, launch a missile
          {
             mx=x+20;
             my=y;
             mdx=dx;
          }
+         else if (e.getKeyCode()==KeyEvent.VK_L)  // if player presses space bar, launch a missile
+         {
+            mx2=x+20;
+            my2=y;
+            mdx2=dx;
+         }
+         /*
+         else if (e.getKeyCode()==KeyEvent.VK_SPACE)  // if player presses space bar, launch a missile
+         {
+            mx=x+20;
+            my=y;
+            mdx=dx;
+         }*/
+      
       	
       }
    
@@ -177,26 +192,17 @@ public class Galaga
             }
            
          }
-      	for(int i= 0; i<enemyCount;i++)
-            { 
-               if(enemies[i].doCollide()==true)
-                  {
-                     my = -1;
-                     enemies[i] = null;
-                     score+=250; 
-                  }
-            }    
-       /*  if ((enemies[i]!=null && Math.abs((enemies[i].getX()+20)-mx)<20) && (Math.abs((enemies[i].getY()+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision1 = true;
-         if (collision1==true)
-         {
-            my = -1;
-            enemies[0] = null;
-            score += 250;
-            collision1 = false;
-         }
-       /*  if ((enemies[1]!=null && Math.abs((ex2+20)-mx)<20) && (Math.abs((ey2+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision2 = true;
+      
+         
+         if ((enemies[0]!=null && Math.abs((enemies[0].getX()+20)-mx)<20) && (Math.abs((enemies[0].getY()+20)-my)<20)) 
+            if (collision1==true)
+            {
+               my = -1;
+               enemies[0] = null;
+               score += 250;
+               collision1 = false;
+            }
+         if ((enemies[1]!=null && Math.abs((enemies[1].getX()+20)-mx)<20) && (Math.abs((enemies[1].getY()+20)-my)<20))            collision2 = true;
          if (collision2==true)
          {
             my = -1;
@@ -204,8 +210,7 @@ public class Galaga
             score += 250;
             collision2 = false;
          }
-         if ((enemies[2]!=null && Math.abs((ex3+20)-mx)<20) && (Math.abs((ey3+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision3 = true;
+         if ((enemies[2]!=null && Math.abs((enemies[2].getX()+20)-mx)<20) && (Math.abs((enemies[2].getY()+20)-my)<20))            collision3 = true;
          if (collision3==true)
          {
             my = -1;
@@ -213,8 +218,7 @@ public class Galaga
             score += 250;
             collision3 = false;
          }
-         if ((enemies[3]!=null && Math.abs((ex4+20)-mx)<20) && (Math.abs((ey4+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision4 = true;
+         if ((enemies[3]!=null && Math.abs((enemies[3].getX()+20)-mx)<20) && (Math.abs((enemies[3].getY()+20)-my)<20))            collision4 = true;
          if (collision4==true)
          {
             my = -1;
@@ -223,8 +227,7 @@ public class Galaga
             collision4 = false;
          }
       
-         if ((enemies[4]!=null && Math.abs((ex5+20)-mx)<20) && (Math.abs((ey5+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision5 = true;
+         if ((enemies[4]!=null && Math.abs((enemies[4].getX()+20)-mx)<20) && (Math.abs((enemies[4].getY()+20)-my)<20))            collision5 = true;
          if (collision5==true)
          {
             my = -1;
@@ -232,8 +235,7 @@ public class Galaga
             score += 250;
             collision5 = false;
          }
-         if ((enemies[5]!=null && Math.abs((ex6+20)-mx)<20) && (Math.abs((ey6+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision6 = true;
+         if ((enemies[5]!=null && Math.abs((enemies[5].getX()+20)-mx)<20) && (Math.abs((enemies[5].getY()+20)-my)<20))            collision6 = true;
          if (collision6==true)
          {
             my = -1;
@@ -241,8 +243,7 @@ public class Galaga
             score += 500;
             collision6 = false;
          }
-         if ((enemies[6]!=null && Math.abs((ex7+20)-mx)<20) && (Math.abs((ey7+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision7 = true;
+         if ((enemies[6]!=null && Math.abs((enemies[6].getX()+20)-mx)<20) && (Math.abs((enemies[6].getY()+20)-my)<20))            collision7 = true;
          if (collision7==true)
          {
             my = -1;
@@ -250,8 +251,7 @@ public class Galaga
             score +=250;
             collision7 = false;
          }
-         if ((enemies[7]!=null && Math.abs((ex8+20)-mx)<20) && (Math.abs((ey8+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision8 = true;
+         if ((enemies[7]!=null && Math.abs((enemies[7].getX()+20)-mx)<20) && (Math.abs((enemies[7].getY()+20)-my)<20))            collision8 = true;
          if (collision8==true)
          {
             my = -1; 
@@ -259,8 +259,7 @@ public class Galaga
             score += 250;
             collision8 = false;
          }
-         if ((enemies[8]!=null && Math.abs((ex9+20)-mx)<20) && (Math.abs((ey9+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision9 = true;
+         if ((enemies[8]!=null && Math.abs((enemies[8].getX()+20)-mx)<20) && (Math.abs((enemies[8].getY()+20)-my)<20))            collision9 = true;
          if (collision9==true)
          {
             my = -1;
@@ -268,8 +267,7 @@ public class Galaga
             score += 250;
             collision9 = false;
          }
-         if ((enemies[9]!=null && Math.abs((ex10+20)-mx)<20) && (Math.abs((ey10+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision10 = true;
+         if ((enemies[9]!=null && Math.abs((enemies[9].getX()+20)-mx)<20) && (Math.abs((enemies[9].getY()+20)-my)<20))            collision10 = true;
          if (collision10==true)
          {
             my = -1;
@@ -277,8 +275,7 @@ public class Galaga
             score += 250;
             collision10 = false;
          }
-         if ((enemies[10]!=null && Math.abs((ex11+20)-mx)<20) && (Math.abs((ey11+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision11 = true;
+         if ((enemies[10]!=null && Math.abs((enemies[10].getX()+20)-mx)<20) && (Math.abs((enemies[10].getY()+20)-my)<20))            collision11 = true;
          if (collision11==true)
          {
             my = -1;
@@ -286,8 +283,7 @@ public class Galaga
             score += 250;
             collision11 = false;
          }
-         if ((enemies[11]!=null && Math.abs((ex12+20)-mx)<20) && (Math.abs((ey12+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision12 = true;
+         if ((enemies[11]!=null && Math.abs((enemies[11].getX()+20)-mx)<20) && (Math.abs((enemies[11].getY()+20)-my)<20))            collision12 = true;
          if (collision12==true)
          {
             my = -1;
@@ -295,8 +291,7 @@ public class Galaga
             score += 250;
             collision12 = false;
          }
-         if ((enemies[12]!=null && Math.abs((ex13+20)-mx)<20) && (Math.abs((ey13+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision13 = true;
+         if ((enemies[12]!=null && Math.abs((enemies[12].getX()+20)-mx)<20) && (Math.abs((enemies[12].getY()+20)-my)<20))            collision13 = true;
          if (collision13==true)
          {
             my = -1;
@@ -304,8 +299,7 @@ public class Galaga
             score += 250;
             collision13 = false;
          }
-         if ((enemies[13]!=null && Math.abs((ex14+20)-mx)<20) && (Math.abs((ey14+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision14 = true;
+         if ((enemies[13]!=null && Math.abs((enemies[13].getX()+20)-mx)<20) && (Math.abs((enemies[13].getY()+20)-my)<20))            collision14 = true;
          if (collision14==true)
          {
             my = -1;
@@ -313,15 +307,14 @@ public class Galaga
             score += 250;
             collision14 = false;
          }
-         if ((enemies[14]!=null && Math.abs((ex15+20)-mx)<20) && (Math.abs((ey15+20)-my)<20)) // do collision detection here, on collision (missile & enemy), add 1 to the score, remove the missile, start the enemy ship at a new random location
-            collision15 = true;
+         if ((enemies[14]!=null && Math.abs((enemies[14].getX()+20)-mx)<20) && (Math.abs((enemies[14].getY()+20)-my)<20))            collision15 = true;
          if (collision15==true)
          {
             my = -1;
             enemies[14] = null;
             score += 250;
             collision15 = false;
-         }*/
+         }
          repaint();
          
       }
@@ -350,12 +343,18 @@ public class Galaga
          gr.setColor(Color.white);
          gr.drawString("Score", 395, 450);
          gr.drawString(zcore, scorex, 470);
-         if (my!=-1)  // add the code to draw the missile
+         if (my!=-1)  // add the code to draw the missile  (This is K)
          {
             gr.setColor(Color.green);
             gr.drawLine(mx, my+10, mx, my+5);	
          }
       	
+         if (my2!=-1)  // add the code to draw the missile (this is L)
+         {
+            gr.setColor(Color.red);
+            gr.drawLine(mx2, my2+10, mx2, my2+5);	
+         }
+      
          if ( (by > 0 ))
          {
             gr.setColor(Color.red);
@@ -366,11 +365,6 @@ public class Galaga
          {
             if(enemies[i]!=null) 
                enemies[i].draw(gr);
-         }
-         if (my!=-1)  // add the code to draw the missile
-         {
-            gr.setColor(Color.green);
-            gr.drawLine(mx, my+10, mx, my+5);	
          }
          Random gen = new Random();
          if (count == 50)
