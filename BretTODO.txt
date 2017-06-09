@@ -9,7 +9,6 @@ variable mdx is for missle x coordinate
 variable mdy is for missle y coordinate
 
 
-<<<<<<< HEAD
 
 GRAVEYARD:
         /*    if (shooter == 0 && enemies[0]!=null)
@@ -88,8 +87,3 @@ GRAVEYARD:
             System.out.println("Count = " + count + " shooter = " + shooter );
       
          }*/
-=======
-6/5/17 Update:
-Worked on collisions for Galaga game. Still not functioning properly. May have to divide up methods to check for collisions.
-Will work on missiles in the future.
->>>>>>> refs/remotes/origin/master
