@@ -80,3 +80,10 @@ GRAVEYARD:
             gr.drawLine(bx,by,bx,by+3);
          }
          		*/
+         /*if (count == 50)
+         {
+            gr.setColor(Color.red);
+            int shooter = (int)(Math.random()+15);         
+            System.out.println("Count = " + count + " shooter = " + shooter );
+      
+         }*/
