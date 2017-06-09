@@ -12,7 +12,7 @@ public class Galaga
    public static void main (String []args)
    {
       JFrame frame = new JFrame();
-      frame.setTitle("Galaga");
+      frame.setTitle("Galaxy Crawlers");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       GraphicPanel panel = new GraphicPanel();
       panel.setFocusable(true);			// for the KeyListener to work, we have
@@ -85,56 +85,55 @@ public class Galaga
    
       public void keyPressed(KeyEvent e)
       {
-         if(e.getKeyCode()==KeyEvent.VK_Q) // if player hits Q, quit the game.
+         if(e.getKeyCode()==KeyEvent.VK_Q) // quit the game.
          {
             System.exit(0);
          }
       	
-         if(e.getKeyCode()==KeyEvent.VK_P) // if player hits P, pause the game.
+         if(e.getKeyCode()==KeyEvent.VK_P) // pause the game.
          {
             t.stop();
          }
       	
-         if(e.getKeyCode()==KeyEvent.VK_X) // if player hits x, resume the game.
+         if(e.getKeyCode()==KeyEvent.VK_X) // resume the game.
          {
             t.start();
          }
       	
-         if(e.getKeyCode()==KeyEvent.VK_A) // if player hits A, increase left velocity by one.
+         if(e.getKeyCode()==KeyEvent.VK_A) // increase left velocity by one.
          {
             dx--;
             if(dx<-3) 
+            {
                dx=-3;
+            }
          }
-         else if(e.getKeyCode()==KeyEvent.VK_D) // if player hits d, increase right velocity by one.
+         else if(e.getKeyCode()==KeyEvent.VK_D) // increase right velocity by one.
          {
             dx++;
-            if(dx>3) 
+            if(dx>3)
+            { 
                dx=3;
+            }
          }
-         else if(e.getKeyCode()==KeyEvent.VK_S) // if player hits s, the launcher will stop moving.
+         else if(e.getKeyCode()==KeyEvent.VK_S) //  launcher will stop moving.
+         {
             dx=0;
-         else if (e.getKeyCode()==KeyEvent.VK_K)  // if player presses space bar, launch a missile
+         }
+         if (e.getKeyCode()==KeyEvent.VK_J)  // Launches regular yellow missile
          {
             mx=x+20;
             my=y;
             mdx=dx;
          }
-         else if (e.getKeyCode()==KeyEvent.VK_L)  // if player presses space bar, launch a missile
+         if (e.getKeyCode()==KeyEvent.VK_H)  // Launches Red Homing missile
          {
             mx2=x+20;
             my2=y;
             mdx2=dx;
          }
-         /*
-         else if (e.getKeyCode()==KeyEvent.VK_SPACE)  // if player presses space bar, launch a missile
-         {
-            mx=x+20;
-            my=y;
-            mdx=dx;
-         }*/
-      
-      	
+         
+           	
       }
    
    
@@ -147,14 +146,19 @@ public class Galaga
          
          Random g = new Random();
          x+=dx;		// move missile launcher
-         if(x>840) 	// wrap missile launcher around screen
+         if(x>850) 	// wrap missile launcher around screen
             x = 30;
          else if(x < 25)
             x = 839;
-         if (my!=-1)	// move missile code here
+         if (my!=-1)	// move missile K
          {
             my=my-4;
             mx=mx+mdx;
+         }
+         if(my2!=-1)   // move missle L
+         {
+            my2=my2-4;
+            mx2=mx2+mdx;
          }
       	
          if (by!=-1)
@@ -193,7 +197,7 @@ public class Galaga
            
          }
       
-         
+         //Start Check Collision for K
          if ((enemies[0]!=null && Math.abs((enemies[0].getX()+20)-mx)<20) && (Math.abs((enemies[0].getY()+20)-my)<20)) 
             if (collision1==true)
             {
@@ -315,23 +319,146 @@ public class Galaga
             score += 250;
             collision15 = false;
          }
+         //Start Check Collision for L
+         if ((enemies[0]!=null && Math.abs((enemies[0].getX()+20)-mx2)<20) && (Math.abs((enemies[0].getY()+20)-my2)<20)) 
+            if (collision1==true)
+            {
+               my2 = -1;
+               enemies[0] = null;
+               score += 250;
+               collision1 = false;
+            }
+         if ((enemies[1]!=null && Math.abs((enemies[1].getX()+20)-mx2)<20) && (Math.abs((enemies[1].getY()+20)-my2)<20))            collision2 = true;
+         if (collision2==true)
+         {
+            my2 = -1;
+            enemies[1] = null;
+            score += 250;
+            collision2 = false;
+         }
+         if ((enemies[2]!=null && Math.abs((enemies[2].getX()+20)-mx2)<20) && (Math.abs((enemies[2].getY()+20)-my2)<20))            collision3 = true;
+         if (collision3==true)
+         {
+            my2 = -1;
+            enemies[2] = null;
+            score += 250;
+            collision3 = false;
+         }
+         if ((enemies[3]!=null && Math.abs((enemies[3].getX()+20)-mx2)<20) && (Math.abs((enemies[3].getY()+20)-my2)<20))            collision4 = true;
+         if (collision4==true)
+         {
+            my2 = -1;
+            enemies[3] = null;
+            score += 500;
+            collision4 = false;
+         }
+      
+         if ((enemies[4]!=null && Math.abs((enemies[4].getX()+20)-mx2)<20) && (Math.abs((enemies[4].getY()+20)-my2)<20))            collision5 = true;
+         if (collision5==true)
+         {
+            my2 = -1;
+            enemies[4] = null;
+            score += 250;
+            collision5 = false;
+         }
+         if ((enemies[5]!=null && Math.abs((enemies[5].getX()+20)-mx2)<20) && (Math.abs((enemies[5].getY()+20)-my2)<20))            collision6 = true;
+         if (collision6==true)
+         {
+            my2 = -1;
+            enemies[5] = null;
+            score += 500;
+            collision6 = false;
+         }
+         if ((enemies[6]!=null && Math.abs((enemies[6].getX()+20)-mx2)<20) && (Math.abs((enemies[6].getY()+20)-my2)<20))            collision7 = true;
+         if (collision7==true)
+         {
+            my2 = -1;
+            enemies[6] = null;
+            score +=250;
+            collision7 = false;
+         }
+         if ((enemies[7]!=null && Math.abs((enemies[7].getX()+20)-mx2)<20) && (Math.abs((enemies[7].getY()+20)-my2)<20))            collision8 = true;
+         if (collision8==true)
+         {
+            my2 = -1; 
+            enemies[7] = null;
+            score += 250;
+            collision8 = false;
+         }
+         if ((enemies[8]!=null && Math.abs((enemies[8].getX()+20)-mx2)<20) && (Math.abs((enemies[8].getY()+20)-my2)<20))            collision9 = true;
+         if (collision9==true)
+         {
+            my2 = -1;
+            enemies[8] = null;
+            score += 250;
+            collision9 = false;
+         }
+         if ((enemies[9]!=null && Math.abs((enemies[9].getX()+20)-mx2)<20) && (Math.abs((enemies[9].getY()+20)-my2)<20))            collision10 = true;
+         if (collision10==true)
+         {
+            my2 = -1;
+            enemies[9] = null;
+            score += 250;
+            collision10 = false;
+         }
+         if ((enemies[10]!=null && Math.abs((enemies[10].getX()+20)-mx2)<20) && (Math.abs((enemies[10].getY()+20)-my2)<20))            collision11 = true;
+         if (collision11==true)
+         {
+            my2 = -1;
+            enemies[10] = null;
+            score += 250;
+            collision11 = false;
+         }
+         if ((enemies[11]!=null && Math.abs((enemies[11].getX()+20)-mx2)<20) && (Math.abs((enemies[11].getY()+20)-my2)<20))            collision12 = true;
+         if (collision12==true)
+         {
+            my2 = -1;
+            enemies[11] = null;
+            score += 250;
+            collision12 = false;
+         }
+         if ((enemies[12]!=null && Math.abs((enemies[12].getX()+20)-mx2)<20) && (Math.abs((enemies[12].getY()+20)-my2)<20))            collision13 = true;
+         if (collision13==true)
+         {
+            my2 = -1;
+            enemies[12] = null;
+            score += 250;
+            collision13 = false;
+         }
+         if ((enemies[13]!=null && Math.abs((enemies[13].getX()+20)-mx2)<20) && (Math.abs((enemies[13].getY()+20)-my2)<20))            collision14 = true;
+         if (collision14==true)
+         {
+            my2 = -1;
+            enemies[13] = null;
+            score += 250;
+            collision14 = false;
+         }
+         if ((enemies[14]!=null && Math.abs((enemies[14].getX()+20)-mx2)<20) && (Math.abs((enemies[14].getY()+20)-my2)<20))            collision15 = true;
+         if (collision15==true)
+         {
+            my2 = -1;
+            enemies[14] = null;
+            score += 250;
+            collision15 = false;
+         }
+      
          repaint();
          
       }
    
       public void paintComponent(Graphics gr)
-      {	String filename = "Galagaship.png";
-         ImageIcon spaceship = new ImageIcon(filename);
+      {	String playerImage = "Galagaship.png";
+         ImageIcon spaceship = new ImageIcon(playerImage);
          im = spaceship.getImage();
-         String fname2 = "Spacebackground.png";
-         int scorex = 0;
-         if (score == 0)
+         String gameBackground = "Spacebackground.png";
+         int scorex = 0;// start game at 0 score
+         if (score == 0) // set scores x position to center 
             scorex = 410;
-         else if (score >=250 && score<1000)
+         else if (score >=250 && score<1000) //set scores x position if there is multiple digits
             scorex = 400;
          else
             scorex = 396;
-         ImageIcon background = new ImageIcon(fname2);
+         ImageIcon background = new ImageIcon(gameBackground);
          im2 = background.getImage();
          String zcore = (String.valueOf(score));
       		
@@ -345,8 +472,9 @@ public class Galaga
          gr.drawString(zcore, scorex, 470);
          if (my!=-1)  // add the code to draw the missile  (This is K)
          {
-            gr.setColor(Color.green);
-            gr.drawLine(mx, my+10, mx, my+5);	
+            gr.setColor(Color.yellow);
+            gr.drawLine(mx, my+10, mx, my+5);
+	
          }
       	
          if (my2!=-1)  // add the code to draw the missile (this is L)
@@ -355,85 +483,18 @@ public class Galaga
             gr.drawLine(mx2, my2+10, mx2, my2+5);	
          }
       
-         if ( (by > 0 ))
-         {
-            gr.setColor(Color.red);
-            gr.drawLine(bx,by,bx,by+3);
-         }
-      	 
-         for (int i = 0; i<=14; i++)
+         for (int i = 0; i<=14; i++)  //Draw Enemies only pannal
          {
             if(enemies[i]!=null) 
                enemies[i].draw(gr);
          }
-         Random gen = new Random();
-         if (count == 50)
+         /*if (count == 50)
          {
             gr.setColor(Color.red);
-            shooter = gen.nextInt(15);
+            int shooter = (int)(Math.random()+15);         
             System.out.println("Count = " + count + " shooter = " + shooter );
-            if (shooter == 0 && enemies[0]!=null)
-            {	bx = ex1;
-               by = ey1; 
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 1 && enemies[1]!=null)
-            {bx = ex2;
-               by = ey2;
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 2 && enemies[2]!=null)
-            {bx = ex3;
-               by = ey3;
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 3 && enemies[3]!=null)
-            {bx = ex4;
-               by = ey4;
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 4 && enemies[4]!=null)
-            {bx = ex5;
-               by = ey5;
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 5 && enemies[5]!=null)
-            {bx = ex6;
-               by = ey6;
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 6 && enemies[6]!=null)
-            {bx = ex7;
-               by = ey7;
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 7 && enemies[7]!=null)
-            {bx = ex8;
-               by = ey8;
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 8 && enemies[8]!=null)
-            {bx = ex9;
-               by = ey9;
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 9 && enemies[9]!=null)
-            {bx = ex10;
-               by = ey10;
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 10 && enemies[10]!=null)
-            {bx = ex11;
-               by = ey11;
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 11 && enemies[11]!=null)
-            {bx = ex12;
-               by = ey12;
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 12 && enemies[12]!=null)
-            {bx = ex13;
-               by = ey13;
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 13 && enemies[13]!=null)
-            {bx = ex14;
-               by = ey14;
-               gr.drawLine(bx, by, bx, by+3);}
-            else if (shooter == 14 && enemies[14]!=null)
-            {bx = ex15;
-               by = ey15;
-               gr.drawLine(bx, by, bx, by+3);}
-         		
-         }
+      
+         }*/
       	
       }
    }

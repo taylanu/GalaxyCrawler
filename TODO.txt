@@ -7,3 +7,76 @@ README:
 
 variable mdx is for missle x coordinate
 variable mdy is for missle y coordinate
+
+
+
+GRAVEYARD:
+        /*    if (shooter == 0 && enemies[0]!=null)
+            {	bx = ex1;
+               by = ey1; 
+               gr.drawLine(bx, by, bx, by+3);}//create line gra
+            else if (shooter == 1 && enemies[1]!=null)
+            {bx = ex2;
+               by = ey2;
+               gr.drawLine(bx, by, bx, by+3);}
+            else if (shooter == 2 && enemies[2]!=null)
+            {bx = ex3;
+               by = ey3;
+               gr.drawLine(bx, by, bx, by+3);}
+            else if (shooter == 3 && enemies[3]!=null)
+            {bx = ex4;
+               by = ey4;
+               gr.drawLine(bx, by, bx, by+3);}
+            else if (shooter == 4 && enemies[4]!=null)
+            {bx = ex5;
+               by = ey5;
+               gr.drawLine(bx, by, bx, by+3);}
+            else if (shooter == 5 && enemies[5]!=null)
+            {bx = ex6;
+               by = ey6;
+               gr.drawLine(bx, by, bx, by+3);}
+            else if (shooter == 6 && enemies[6]!=null)
+            {bx = ex7;
+               by = ey7;
+               gr.drawLine(bx, by, bx, by+3);}
+            else if (shooter == 7 && enemies[7]!=null)
+            {bx = ex8;
+               by = ey8;
+               gr.drawLine(bx, by, bx, by+3);}
+            else if (shooter == 8 && enemies[8]!=null)
+            {bx = ex9;
+               by = ey9;
+               gr.drawLine(bx, by, bx, by+3);}
+            else if (shooter == 9 && enemies[9]!=null)
+            {bx = ex10;
+               by = ey10;
+               gr.drawLine(bx, by, bx, by+3);}
+            else if (shooter == 10 && enemies[10]!=null)
+            {bx = ex11;
+               by = ey11;
+               gr.drawLine(bx, by, bx, by+3);}
+            else if (shooter == 11 && enemies[11]!=null)
+            {bx = ex12;
+               by = ey12;
+               gr.drawLine(bx, by, bx, by+3);}
+            else if (shooter == 12 && enemies[12]!=null)
+            {bx = ex13;
+               by = ey13;
+               gr.drawLine(bx, by, bx, by+3);}
+            else if (shooter == 13 && enemies[13]!=null)
+            {bx = ex14;
+               by = ey14;
+               gr.drawLine(bx, by, bx, by+3);}
+            else if (shooter == 14 && enemies[14]!=null)
+            {bx = ex15;
+               by = ey15;
+               gr.drawLine(bx, by, bx, by+3);}
+
+
+
+  if ( (by > 0 ))
+         {
+            gr.setColor(Color.red);
+            gr.drawLine(bx,by,bx,by+3);
+         }
+         		*/
