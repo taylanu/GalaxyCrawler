@@ -31,12 +31,14 @@ public class missile extends JPanel
       gr.drawImage(im, x, y, size, size, Color.black, this);
    }
 	
-   public int getX()
+   @Override
+public int getX()
    {
       return x;
    }
 	
-   public int getY()
+   @Override
+public int getY()
    {
       return y;
    }

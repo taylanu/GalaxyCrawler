@@ -1,0 +1,10 @@
+HitchHikers Guide to the Galaxy Crawler
+
+Welcome to Galaxy Crawler! 
+
+
+Dev Guide:
+In game, there are many variables that go into play, most of which are coordinates for each of the in game objects (ie. the player and the enemies and the player's missiles)
+
+MX and MY are missile coordinates and can be found when checking for collisions and when they are drawn with a drawLine command among other instances.
+

@@ -3,22 +3,17 @@ import java.awt.*;
 import javax.swing.*;
 public class enemy extends JPanel
 {
-   private int size, x,y, dx, dy, bx, by, dbx, dby, numBombs;
-   private Random gen;
+   private int size, x, y, dx, bx, by;
    private Image im;
 	
    public enemy(int x1, int y1, String f) 
    {
       size = 25;
       dx = 0;
-      dy = 0;
       bx = -1;
       by = -1;
-      dbx = 2;
-      dby = 2;
       x = x1;
       y = y1;
-      numBombs = 5;
       ImageIcon ii=new ImageIcon(f);
       im=ii.getImage();
    }
@@ -42,12 +37,14 @@ public class enemy extends JPanel
       gr.drawImage(im, x, y, size, size, Color.black, this);
    }
 	
-   public int getX()
+   @Override
+public int getX()
    {
       return x;
    }
 	
-   public int getY()
+   @Override
+public int getY()
    {
       return y;
    }
